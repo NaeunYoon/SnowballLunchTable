@@ -1,9 +1,12 @@
 
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:webtoon/models/webtoonModel.dart';
+import 'package:webtoon/models/webtoon_detail_model.dart';
+import 'package:webtoon/models/webtoon_episode_model.dart';
 
 class ApiService
 {
@@ -30,8 +33,47 @@ class ApiService
     else {
       throw Error();
     }
-    
+  }
 
+
+  static Future<WebtoonDetailModel>getToonById(String id) async
+  {
+    final url = Uri.parse('$baseUrl/$id');
+
+    final response = await http.get(url);
+    
+    if(response.statusCode ==200)
+    {
+
+      final toons = jsonDecode(response.body);
+      //WebtoonDetailModel.fromJson(toons);
+
+      return   WebtoonDetailModel.fromJson(toons);
+    }else
+    {
+      throw Error();
+    }
+  }
+
+  static Future<List<WebtoonEpisodeModel>>getLatestEpisodesById(String id) async
+  {
+
+    List<WebtoonEpisodeModel> episodesInstances =[];
+    final url = Uri.parse('$baseUrl/$id/episodes');
+
+    final response = await http.get(url);
+    
+    if(response.statusCode ==200)
+    {
+      final episodes = jsonDecode(response.body);
+      for (var episode in episodes)
+      {
+        var epi = WebtoonEpisodeModel.fromJson(episode);
+        episodesInstances.add(epi);
+      }
+      return episodesInstances;
+    }
+      throw Error();
   }
 
 
