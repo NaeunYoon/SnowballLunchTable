@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 100,
+            height: 200,
           ),
           const InputText(
             hintText: '아이디를 입력해주세요.',
@@ -35,12 +35,26 @@ class Home extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 400),
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(),
-              child: const Text(
-                '로그인',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+            child: SizedBox(
+              width: 600,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 15), // 버튼 높이
+                ),
+                child: const Text(
+                  '로그인',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ),
