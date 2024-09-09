@@ -24,10 +24,12 @@ class Home extends StatelessWidget {
             height: 200,
           ),
           const InputText(
+            isPassword: false,
             hintText: '아이디를 입력해주세요.',
           ),
           const SizedBox(height: 50),
           const InputText(
+            isPassword: true,
             hintText: '비밀번호를 입력해주세요',
           ),
           const SizedBox(
@@ -66,13 +68,16 @@ class Home extends StatelessWidget {
 
 class InputText extends StatelessWidget {
   final String hintText;
-  const InputText({super.key, required this.hintText});
+  final bool isPassword;
+  const InputText(
+      {super.key, required this.hintText, required this.isPassword});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 400),
+      padding: const EdgeInsets.symmetric(horizontal: 600),
       child: TextField(
+        obscureText: isPassword,
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
