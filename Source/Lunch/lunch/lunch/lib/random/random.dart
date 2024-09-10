@@ -61,14 +61,15 @@ class _RandomImageState extends State<RandomImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5DEB3),
+      backgroundColor: const Color.fromRGBO(231, 206, 179, 1),
       appBar: AppBar(
+        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
         title: const Text(
           '랜덤 돌리기',
           style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
-        backgroundColor: const Color(0xFF8B4513),
+        backgroundColor: const Color.fromRGBO(219, 187, 159, 1),
       ),
       body: Center(
         child: Column(
