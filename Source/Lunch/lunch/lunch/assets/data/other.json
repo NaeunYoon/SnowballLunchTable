@@ -3,8 +3,8 @@
       {
         "name": "pho36",
         "menu": "쌀국수",
-        "price": 9000,
-        "rating": 4,
+        "price": "9000",
+        "rating": "4",
         "location": "가산"
       }
     ]
