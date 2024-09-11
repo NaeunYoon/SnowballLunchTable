@@ -55,8 +55,14 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+
+
   assets:
-    - assets/images/
+    - assets/foods/
+    - assets/data/korean.json
+    - assets/data/chiness.json
+    - assets/data/japaness.json
+    - assets/data/other.json
 
   fonts:
     - family: BlackHanSans

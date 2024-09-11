@@ -1,0 +1,40 @@
+{
+    "restaurants": [
+      {
+        "name": "담소순대국",
+        "menu": "육개장",
+        "price": 1,
+        "rating": 3,
+        "location": "1층"
+      },
+      {
+        "name": "찬우물",
+        "menu": "모둠전",
+        "price": 2,
+        "rating": 3,
+        "location": "가산"
+      },
+      {
+        "name": "제주청량해장",
+        "menu": "돔베전골",
+        "price": 3,
+        "rating": 5,
+        "location": "가산"
+      },
+      {
+        "name": "동대문털보네",
+        "menu": "껍데기",
+        "price": 4,
+        "rating": 5,
+        "location": "가산"
+      },
+      {
+        "name": "미각",
+        "menu": "곱창전골",
+        "price": 5,
+        "rating": 5,
+        "location": "가산"
+      }
+    ]
+  }
+  

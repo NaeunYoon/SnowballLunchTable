@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lunch/icon/snow_flake_icons.dart';
+import 'package:lunch/screens/random_screen.dart';
 import 'package:lunch/screens/selection_screen.dart';
 
 
@@ -22,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> 
 {
 
-  ActName selectedPage = ActName.Selection;
+  ActName selectedPage = ActName.Random;
 
   Widget buildPage() {
     if (selectedPage == ActName.Home) {
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen>
     } else if (selectedPage == ActName.Selection) {
       return const Selection();
     } else if (selectedPage == ActName.Random) {
-      return const Center(child: Text('페이지 2', style: TextStyle(fontSize: 30)));
+      return  const RandomScreen();
     } else if(selectedPage == ActName.Worldcup) {
       return const Center(child: Text('페이지 3', style: TextStyle(fontSize: 30)));
     }
