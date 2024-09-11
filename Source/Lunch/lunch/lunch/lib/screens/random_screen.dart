@@ -85,13 +85,13 @@ class _RandomScreenState extends State<RandomScreen> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: double.infinity,
+
       decoration: BoxDecoration(
         border: Border.all(color: const Color.fromRGBO(45, 138, 193, 1),
                           width: 3),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,

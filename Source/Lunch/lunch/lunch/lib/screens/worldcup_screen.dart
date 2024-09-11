@@ -39,7 +39,7 @@ class _WorldCupState extends State<WorldCup> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const CustomFontStyle(txt: "WIN",co: Color.fromRGBO(5, 79, 146, 1),),
-          content: Text("$winner WIN"),
+          content: CustomFontStyle(txt: "$winner WIN",co: const Color.fromRGBO(5, 79, 146, 1)),
           actions: [
             TextButton(
               onPressed: () {
@@ -66,9 +66,14 @@ class _WorldCupState extends State<WorldCup> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: const CustomFontStyle(txt: "FOOD WORLDCUP",co: Color.fromRGBO(5, 79, 146, 1),),
-          content: foodRepeat(name1, name2),
+        return Container(
+          decoration: const BoxDecoration(),
+          width: 500,
+          height: 600,
+          child: AlertDialog(
+            title: const CustomFontStyle(txt: "FOOD WORLDCUP",co: Color.fromRGBO(5, 79, 146, 1),),
+            content: foodRepeat(name1, name2),
+          ),
         );
       },
     );
@@ -84,8 +89,8 @@ class _WorldCupState extends State<WorldCup> {
             onFoodSelected(name1); 
           },
           child: Container(
-            width: 200,
-            height: 200,
+            width: 100,
+            height: 100,
             decoration: BoxDecoration(
               border: Border.all(color: const Color.fromRGBO(5, 79, 146, 1)),
             ),
@@ -101,8 +106,8 @@ class _WorldCupState extends State<WorldCup> {
             onFoodSelected(name2); 
           },
           child: Container(
-            width: 200,
-            height: 200,
+            width: 100,
+            height: 100,
             decoration: BoxDecoration(
               border: Border.all(color: const Color.fromRGBO(5, 79, 146, 1)),
             ),
@@ -120,12 +125,15 @@ class _WorldCupState extends State<WorldCup> {
         decoration: BoxDecoration(
           border: Border.all(color: const Color.fromRGBO(5, 79, 146, 1), width: 3)
         ),
-        child: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              foodDialog(foodPair[0], foodPair[1]); 
-            },
-            child: const CustomFontStyle(txt: "START",co: Color.fromRGBO(5, 79, 146, 1),),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () {
+                foodDialog(foodPair[0], foodPair[1]); 
+              },
+              child: const CustomFontStyle(txt: "START",co: Color.fromRGBO(5, 79, 146, 1),),
+            ),
           ),
         ),
       ),

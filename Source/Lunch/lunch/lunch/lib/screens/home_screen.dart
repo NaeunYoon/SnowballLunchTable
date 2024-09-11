@@ -3,6 +3,7 @@ import 'package:lunch/icon/snow_flake_icons.dart';
 import 'package:lunch/screens/random_screen.dart';
 import 'package:lunch/screens/selection_screen.dart';
 import 'package:lunch/screens/worldcup_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 enum ActName{
@@ -46,6 +47,19 @@ class _HomeScreenState extends State<HomeScreen>
     });
   }
 
+  void onClickQuestionMark()async
+  {
+    final url = Uri.parse("https://www.youtube.com/shorts/A3DYhl9etGc");
+    await launchUrl(url);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,46 +68,61 @@ class _HomeScreenState extends State<HomeScreen>
       //rgb(219, 187, 159)
       title: 
         Padding(
-         padding: const EdgeInsets.symmetric(horizontal: 30),
+         padding: const EdgeInsets.symmetric(horizontal: 2),
          child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             IconButton(onPressed:onClickHomeBtn, 
                       icon: const Icon(Icons.home_filled),
-                      iconSize: 50,),
-            const SizedBox(width: 20,),
-            const Text("SNOWBALL LUNCH TABLE",
-                    style: TextStyle(fontSize: 30,
-                    fontFamily: 'BlackHanSans',
-                    fontWeight: FontWeight.w500)
-                    ,),
-            const SizedBox(width: 20,),
-            const Text("*점메추*",
-                    style: TextStyle(fontSize: 30,
+                      iconSize: 40,),
+            const SizedBox(width: 10,),
+            const Column(
+              children: [
+                Text("SNOWBALL LUNCH TABLE",
+                        style: TextStyle(fontSize: 20,
+                        fontFamily: 'BlackHanSans',
+                        fontWeight: FontWeight.w500)
+                        ,),
+            Text("*점메추*",
+                    style: TextStyle(fontSize: 15,
                     fontFamily: 'BlackHanSans',
                     //fontWeight: FontWeight.w700,
                     color: Colors.red)
                     ,),
+              ],
+            ),
                     ],
             ),
        ),
       backgroundColor: const Color.fromRGBO(219, 187, 159, 1),
      ),
-     body: buildPage(),
+     body:buildPage(),
+     //SingleChildScrollView(child: buildPage()),
     );
   }
 
   Padding MainPage() {
     return Padding(
-     padding: const EdgeInsets.all(30),
+     padding: const EdgeInsets.all(10),
      child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         const Text("가산 디지털 단지의 맛집 리스트를 모아서",
-              style: TextStyle(fontFamily:'BlackHanSans',
-                              fontSize: 30,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black ),),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+             const Text("가산 디지털 단지의 \n맛집 리스트를 모아서",
+                  style: TextStyle(fontFamily:'BlackHanSans',
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black ),
+                                  ),
+              IconButton(onPressed: (){onClickQuestionMark();}, 
+              icon: const Icon(Icons.question_mark),
+              iconSize: 50,
+              color: const Color.fromARGB(255, 255, 0, 238),
+              ),
+           ],
+         ),
           const Text("Big Data !",
               style: TextStyle(fontFamily:'BlackHanSans',
                               fontSize: 50,
@@ -139,7 +168,6 @@ class _HomeScreenState extends State<HomeScreen>
    );
   }
 }
-
 class SnowIcon extends StatefulWidget 
 {
   final Color iconColor;
