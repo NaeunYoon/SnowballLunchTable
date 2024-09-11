@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lunch/icon/snow_flake_icons.dart';
 import 'package:lunch/screens/random_screen.dart';
 import 'package:lunch/screens/selection_screen.dart';
+import 'package:lunch/screens/worldcup_screen.dart';
 
 
 enum ActName{
@@ -22,22 +23,28 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> 
 {
-
-  ActName selectedPage = ActName.Random;
+  ActName selectedPage = ActName.Home;
 
   Widget buildPage() {
     if (selectedPage == ActName.Home) {
-      return MainPage(); // 메인 페이지
+      return MainPage(); 
     } else if (selectedPage == ActName.Selection) {
       return const Selection();
     } else if (selectedPage == ActName.Random) {
       return  const RandomScreen();
     } else if(selectedPage == ActName.Worldcup) {
-      return const Center(child: Text('페이지 3', style: TextStyle(fontSize: 30)));
+      return const WorldCup();
     }
     return MainPage();
   }
 
+  void onClickHomeBtn()
+  {
+    setState(() {
+      selectedPage = ActName.Home;
+      buildPage();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,20 +53,22 @@ class _HomeScreenState extends State<HomeScreen>
      appBar: AppBar(
       //rgb(219, 187, 159)
       title: 
-       const Padding(
-         padding: EdgeInsets.symmetric(horizontal: 30),
+        Padding(
+         padding: const EdgeInsets.symmetric(horizontal: 30),
          child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            //Image.asset("images/name.png",width: 30,height: 30,),
-            SizedBox(width: 20,),
-            Text("SNOWBALL LUNCH TABLE",
+            IconButton(onPressed:onClickHomeBtn, 
+                      icon: const Icon(Icons.home_filled),
+                      iconSize: 50,),
+            const SizedBox(width: 20,),
+            const Text("SNOWBALL LUNCH TABLE",
                     style: TextStyle(fontSize: 30,
                     fontFamily: 'BlackHanSans',
                     fontWeight: FontWeight.w500)
                     ,),
-            SizedBox(width: 20,),
-            Text("*점메추*",
+            const SizedBox(width: 20,),
+            const Text("*점메추*",
                     style: TextStyle(fontSize: 30,
                     fontFamily: 'BlackHanSans',
                     //fontWeight: FontWeight.w700,

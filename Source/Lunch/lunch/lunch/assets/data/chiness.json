@@ -3,35 +3,35 @@
       {
         "name": "미가",
         "menu": "양념양꼬치",
-        "price": 1,
+        "price": 15000,
         "rating": 5,
         "location": "가산"
       },
       {
         "name": "페이자이",
         "menu": "해물누룽지탕",
-        "price": 2,
+        "price": 20000,
         "rating": 3,
         "location": "가산"
       },
       {
         "name": "사오정마라탕",
         "menu": "마라탕",
-        "price": 3,
+        "price": 10000,
         "rating": 3,
         "location": "가산"
       },
       {
         "name": "샤오당자마라탕",
         "menu": "마라탕탕",
-        "price": 4,
+        "price": 10000,
         "rating": 5,
         "location": "가산"
       },
       {
         "name": "만리향",
         "menu": "고기튀김",
-        "price": 5,
+        "price": 15000,
         "rating": 3,
         "location": "가산"
       }

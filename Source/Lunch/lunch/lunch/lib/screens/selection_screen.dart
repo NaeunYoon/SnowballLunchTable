@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lunch/screens/worldcup_screen.dart';
 
 class Selection extends StatefulWidget {
   const Selection({super.key});
@@ -16,7 +17,7 @@ class _SelectionState extends State<Selection> {
     final String response = await rootBundle.loadString('assets/data/$fileName.json');
     final data = await json.decode(response);
     //print(data);
-    
+
     if(data['restaurants'] != null)
     {
       // List<dynamic> restaurantList = data['restaurants'];
@@ -27,7 +28,6 @@ class _SelectionState extends State<Selection> {
         {
           //var firstRestaurant = restaurantList[0] as Map<String, dynamic>;
           //print(firstRestaurant['menu']);
-        
         setState(() {
           rowData = (data['restaurants'] as List).map((restaurant) 
           {
@@ -50,6 +50,13 @@ class _SelectionState extends State<Selection> {
         });
     }
 }
+
+@override
+  void initState() {
+    super.initState();
+    loadJson("korean");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,11 +81,11 @@ class _SelectionState extends State<Selection> {
             const SizedBox(height: 30,),
           DataTable(
             columns:  const [
-              DataColumn(label: Text('상호명')),
-              DataColumn(label: Text('음식명')),
-              DataColumn(label: Text('가격')),
-              DataColumn(label: Text('점수')),
-              DataColumn(label: Text('기타')),
+              DataColumn(label: CustomFontStyle(txt: "상호명",co:Color.fromRGBO(132, 187, 69, 1) ,)),
+              DataColumn(label: CustomFontStyle(txt: "음식명",co: Color.fromRGBO(132, 187, 69, 1),)),
+              DataColumn(label: CustomFontStyle(txt: "가격",co: Color.fromRGBO(132, 187, 69, 1),)),
+              DataColumn(label: CustomFontStyle(txt: "점수",co: Color.fromRGBO(132, 187, 69, 1),)),
+              DataColumn(label: CustomFontStyle(txt: "기타",co: Color.fromRGBO(132, 187, 69, 1),)),
             ],
             rows: rowData,
             // rows: const [

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:lunch/screens/worldcup_screen.dart';
 
 class RandomScreen extends StatefulWidget {
   const RandomScreen({super.key});
@@ -14,12 +15,19 @@ class _RandomScreenState extends State<RandomScreen> {
  final List<String> imagePaths =['assets/foods/food1.jpg',
                                 'assets/foods/food2.jpg',
                                 'assets/foods/food3.jpg',
+                                'assets/foods/food4.jpg',
+                                'assets/foods/food5.jpg',
+                                'assets/foods/food6.jpg',
+                                'assets/foods/food7.jpg',
+                                'assets/foods/food8.jpg',
+                                'assets/foods/food9.jpg',
+                                'assets/foods/food10.jpg'
                                 ];
 
   late Timer timer;
   int index = 0;
   String img ='';
-
+  String foodname='';
   @override
   void initState() {
     super.initState();
@@ -37,6 +45,8 @@ class _RandomScreenState extends State<RandomScreen> {
   void selectImage() {
     setState(() {
       img = imagePaths[index];
+      foodname = imagePaths[index].toString().split("/").last.split(".").first;
+      Popup();
     });
     timer.cancel(); 
   }
@@ -44,7 +54,6 @@ class _RandomScreenState extends State<RandomScreen> {
     @override
   void dispose() {
     timer.cancel(); 
-    Popup();
     super.dispose();
   }
 
@@ -53,7 +62,7 @@ class _RandomScreenState extends State<RandomScreen> {
     showDialog(context: context, 
               builder: (BuildContext context){
                 return AlertDialog(
-                  title:  Text("선택한 음식은 ?"),
+                  title: CustomFontStyle(txt: "선택한 음식은 ? $foodname",co: const Color.fromRGBO(45, 138, 193, 1),) ,
                   content: Image.asset(
                         img,
                         width: 300,
@@ -61,8 +70,9 @@ class _RandomScreenState extends State<RandomScreen> {
                       ),
                        actions: <Widget>[
                       TextButton(
-                        child: const Text('닫기'),
+                        child: const CustomFontStyle(txt: "닫기", co: Color.fromRGBO(45, 138, 193, 1),),
                         onPressed: () {
+                          changeImg();
                           Navigator.of(context).pop();
                         },
             ),
@@ -77,7 +87,7 @@ class _RandomScreenState extends State<RandomScreen> {
       width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(
-        border: Border.all(color: const Color.fromRGBO(132, 187, 69, 1),
+        border: Border.all(color: const Color.fromRGBO(45, 138, 193, 1),
                           width: 3),
       ),
       child: Padding(
@@ -86,28 +96,13 @@ class _RandomScreenState extends State<RandomScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            
             Image.asset(imagePaths[index],width: 300,height: 300,),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 10,),
             IconButton(onPressed: selectImage, 
                        icon: const Icon(Icons.pause_circle_filled),
-                      iconSize: 50,),
-          
-            
-          // if(img.isNotEmpty)
-          //    Padding(padding: const EdgeInsets.only(top: 20),
-          //       child: Column(
-          //         children: [
-          //           const Text("선택한 음식은 ?"),
-          //            Image.asset(
-          //               img,
-          //               width: 300,
-          //               height: 300,
-          //             ),
-          //         ],
-          //       ),
-            
-          //   ),
+                      iconSize: 50,
+                      color:const Color.fromRGBO(45, 138, 193, 1) ,),
+
           ]
         ),
       ),

@@ -3,21 +3,21 @@
       {
         "name": "스시천",
         "menu": "코스요리",
-        "price": 1,
+        "price": 40000,
         "rating": 4,
         "location": "서울"
       },
       {
         "name": "백소정",
         "menu": "돈까스",
-        "price": 2,
-        "rating": 5.3,
+        "price": 15000,
+        "rating": 5,
         "location": "가산"
       },
       {
         "name": "코코로식당",
         "menu": "김치나베",
-        "price": 3,
+        "price": 9000,
         "rating": 1,
         "location": "가산"
       }
