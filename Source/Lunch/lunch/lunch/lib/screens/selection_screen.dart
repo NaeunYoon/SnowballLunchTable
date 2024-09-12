@@ -111,7 +111,11 @@ Future<void> loadSpreadSheet(String fileName) async {
           DataCell(Text(food["menu"] ?? '',style: const TextStyle(fontSize: 15),)), 
           DataCell(Text(food["price"] ?? '',style: const TextStyle(fontSize: 15),)), 
           DataCell(Text(food["rating"] ?? '',style: const TextStyle(fontSize: 20,color: Color.fromRGBO(132, 187, 69, 1)),)), 
-          DataCell(Text(food["comments"] ?? '',style: const TextStyle(fontSize: 15),)), 
+          DataCell(SingleChildScrollView(
+            
+            child: Text(food["comments"] ?? '',style: const TextStyle(fontSize: 15),)
+              )
+            ), 
         ],
       );
     }).toList();
@@ -153,6 +157,7 @@ Future<void> loadSpreadSheet(String fileName) async {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: DataTable(
+                dataRowMinHeight: 30,
                 columns:  const [
                   DataColumn(label: CustomFontStyle(txt: "상호명",co:Color.fromRGBO(132, 187, 69, 1) ,)),
                   DataColumn(label: CustomFontStyle(txt: "음식명",co: Color.fromRGBO(132, 187, 69, 1),)),
