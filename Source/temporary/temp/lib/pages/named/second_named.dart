@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:temp/pages/normal/second.dart';
 import 'package:temp/src/home_screen.dart';
 
-class FirstNamedPage extends StatelessWidget {
-  const FirstNamedPage({super.key});
+class SecondNamedPage extends StatelessWidget {
+  const SecondNamedPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("FirstNamedPage"),
+        title: const Text("SecondNamedPage"),
       ),
       body:Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+             ElevatedButton(onPressed: 
+            (
+              (){
+                Get.back();
+              }
+            ), child: const Text("이전 이동")),
             ElevatedButton(onPressed: 
             (
               (){
-
-                //Navigator.of(context).pushAndRemoveUntil(newRoute, predicate)
-
-               Get.toNamed("/second");
+               Get.offAllNamed("/");
               }
-            ), child: const Text("다음페이지"))
+            ), child: const Text("홈 이동"))
           ],
         ),
       ),

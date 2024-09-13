@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:temp/src/home_screen.dart';
 
-class SecondNamedPage extends StatelessWidget {
-  const SecondNamedPage({super.key});
+class SecondArgument extends StatelessWidget {
+  const SecondArgument({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SecondNamedPage"),
+        title: const Text("SecondArgument"),
       ),
       body:Center(
         child: Column(
@@ -18,13 +18,13 @@ class SecondNamedPage extends StatelessWidget {
              ElevatedButton(onPressed: 
             (
               (){
-                
+                Get.back();
               }
             ), child: const Text("이전 이동")),
             ElevatedButton(onPressed: 
             (
               (){
-               
+               Get.offAllNamed("/");
               }
             ), child: const Text("홈 이동"))
           ],
