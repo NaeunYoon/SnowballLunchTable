@@ -12,6 +12,8 @@ class WithProvider extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text("PROVIDER"),
+          //Text(Provider.of<CntControllerWithProvider>(context).cnt.toString()),
+          //이쪽만 빌드되게 함
           Consumer<CntControllerWithProvider>
           (
             builder: (context,snapshot,child)
